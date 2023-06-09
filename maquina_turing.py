@@ -71,4 +71,22 @@ class MaquinaTuring:
         # TODO adicionar else e o restante da lógica (argumentos)
         self.computacoes = p.COMPUTACOES
 
+    def imprimir(self, bloco_atual, estado_atual, fita_original):
+        bloco = c.PONTO * (16 - len(bloco_atual.id)) + bloco_atual.id
+        estado = c.ZERO * (4 - len(estado_atual)) + estado_atual
+        fita_com_maximo_brancos = f'{c.BRANCO + (c.MAXIMO_BRANCO_FITA - 1)}' + ''.join(fita_original) + \
+                                  f'{c.BRANCO + (c.MAXIMO_BRANCO_FITA - 1)}'
+        indice_esquerda = self.indice
+        indice_centro = self.indice + c.MAXIMO_BRANCO_FITA
+        indice_direita = self.indice + ((2 * c.MAXIMO_BRANCO_FITA) - 1)
+        resultado_fita = c.VAZIO
+        indice_atual = indice_esquerda
+        while indice_atual < indice_direita:
+            if (indice_atual + 1) == indice_centro:
+                resultado_fita = f'{resultado_fita}({fita_com_maximo_brancos[indice_atual]})'
+            else:
+                resultado_fita = f'{resultado_fita}{fita_com_maximo_brancos[indice_atual]}'
+            indice_atual += 1
+        print(f'{bloco}.{estado}: {resultado_fita}')
+
 
