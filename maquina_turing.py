@@ -106,5 +106,5 @@ class MaquinaTuring:
         print(f'{bloco}.{estado}: {resultado_fita}')
 
     def verificar_verbose(self, bloco_atual, estado_atual, fita_original):
-        if estado_atual != c.RETORNE and p.verbose:
+        if estado_atual != c.RETORNE and (p.verbose or p.step):
             self.imprimir(bloco_atual, estado_atual, fita_original)
