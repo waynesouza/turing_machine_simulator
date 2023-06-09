@@ -1,6 +1,7 @@
 import utils.constantes as c
 import utils.parametros as p
-import handle.analisador as a
+import utils.mensagens as m
+import handlers.analisador as a
 
 
 class MaquinaTuring:
@@ -51,9 +52,7 @@ class MaquinaTuring:
                 try:
                     comando = comandos_coringa[0] if len(comandos_sem_coringa) == 0 else comandos_sem_coringa[0]
                 except Exception as e:
-                    # FIXME criar arquivo de erros
-                    print(f'ERROR -- símbolo: {simbolo_lido}, estado: {estado_atual} e bloco: {bloco_atual.id}')
-                    print(f'Detalhes: {e}')
+                    print(m.ERRO.format(simbolo=simbolo_lido, estado=estado_atual, bloco=bloco_atual.id, erro=e))
 
                 if comando.breakpoint:
                     self.abrir_terminal()
@@ -72,7 +71,7 @@ class MaquinaTuring:
         self.verificar_verbose(bloco_atual, estado_atual, fita)
 
     def abrir_terminal(self):
-        novas_instrucoes = input('Informe as novas instruções: ').split(' ')  # FIXME adicionar um arquivo de mensagens
+        novas_instrucoes = input(m.NOVAS_INSTRUCOES).split(' ')
 
         if novas_instrucoes[0] == c.VAZIO:
             novas_instrucoes = p.ultimas_instrucoes
@@ -86,8 +85,8 @@ class MaquinaTuring:
         bloco = c.PONTO * (16 - len(bloco_atual.id)) + bloco_atual.id
         estado = c.ZERO * (4 - len(estado_atual)) + estado_atual
 
-        fita_com_maximo_brancos = f'{c.BRANCO + (c.MAXIMO_BRANCO_FITA - 1)}' + ''.join(fita_original) + \
-                                  f'{c.BRANCO + (c.MAXIMO_BRANCO_FITA - 1)}'
+        fita_com_maximo_brancos = f'{c.BRANCO * (c.MAXIMO_BRANCO_FITA - 1)}' + ''.join(fita_original) + \
+                                  f'{c.BRANCO * (c.MAXIMO_BRANCO_FITA - 1)}'
 
         indice_esquerda = self.indice
         indice_centro = self.indice + c.MAXIMO_BRANCO_FITA
@@ -109,5 +108,3 @@ class MaquinaTuring:
     def verificar_verbose(self, bloco_atual, estado_atual, fita_original):
         if estado_atual != c.RETORNE and p.verbose:
             self.imprimir(bloco_atual, estado_atual, fita_original)
-
-
