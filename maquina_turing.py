@@ -1,5 +1,5 @@
-import util.constante as c
-import util.parametro as p
+import utils.constantes as c
+import utils.parametros as p
 import handle.analisador as a
 
 
