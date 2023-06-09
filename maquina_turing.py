@@ -1,4 +1,5 @@
 import util.constante as c
+import util.parametro as p
 
 
 class MaquinaTuring:
@@ -62,3 +63,12 @@ class MaquinaTuring:
                     if self.indice == (len(fita) - 1) and comando.movimento == c.DIREITA:
                         fita.append(c.BRANCO)
                     self.indice += 1 if comando.movimento == c.DIREITA else -1
+
+    def abrir_terminal(self):
+        novas_instrucoes = input('Informe as novas instruções: ').split(' ')  # FIXME adicionar um arquivo de mensagens
+        if novas_instrucoes[0] == c.VAZIO:
+            novas_instrucoes = ''  # TODO usar as ultimas instruções
+        # TODO adicionar else e o restante da lógica (argumentos)
+        self.computacoes = p.COMPUTACOES
+
+

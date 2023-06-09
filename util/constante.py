@@ -7,3 +7,5 @@ BRANCO = '_'
 DIREITA = 'd'
 IMOVEL = 'i'
 ESQUERDA = 'e'
+
+VAZIO = ''
