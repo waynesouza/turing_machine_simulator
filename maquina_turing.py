@@ -83,7 +83,8 @@ class MaquinaTuring:
         indice_atual = indice_esquerda
         while indice_atual < indice_direita:
             if (indice_atual + 1) == indice_centro:
-                resultado_fita = f'{resultado_fita}({fita_com_maximo_brancos[indice_atual]})'
+                resultado_fita = f'{resultado_fita}{p.delimitador_inicial}' \
+                                 f'{fita_com_maximo_brancos[indice_atual]}{p.delimitador_final}'
             else:
                 resultado_fita = f'{resultado_fita}{fita_com_maximo_brancos[indice_atual]}'
             indice_atual += 1
