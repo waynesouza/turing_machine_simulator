@@ -1,6 +1,8 @@
-COMPUTACOES = 0
+computacoes = 0
 
-RESUME = True
-VERBOSE = False
-STEP = False
-HEAD = False
+resume = True
+verbose = False
+step = False
+head = False
+
+parametros_permitidos = [['-resume', '-r'], ['-verbose', '-v'], ['-step', '-s'], ['-head', '-h']]

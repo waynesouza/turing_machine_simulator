@@ -69,7 +69,7 @@ class MaquinaTuring:
         if novas_instrucoes[0] == c.VAZIO:
             novas_instrucoes = ''  # TODO usar as ultimas instruções
         # TODO adicionar else e o restante da lógica (argumentos)
-        self.computacoes = p.COMPUTACOES
+        self.computacoes = p.computacoes
 
     def imprimir(self, bloco_atual, estado_atual, fita_original):
         bloco = c.PONTO * (16 - len(bloco_atual.id)) + bloco_atual.id
@@ -90,7 +90,7 @@ class MaquinaTuring:
         print(f'{bloco}.{estado}: {resultado_fita}')
 
     def verificar_verbose(self, bloco_atual, estado_atual, fita_original):
-        if estado_atual != c.RETORNE and p.VERBOSE:
+        if estado_atual != c.RETORNE and p.verbose:
             self.imprimir(bloco_atual, estado_atual, fita_original)
 
 
