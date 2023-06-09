@@ -1,1 +1,6 @@
 COMPUTACOES = 0
+
+RESUME = True
+VERBOSE = False
+STEP = False
+HEAD = False

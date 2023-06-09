@@ -1,5 +1,6 @@
 PARE = 'pare'
 RETORNE = 'retorne'
+PRINCIPAL = 'main'
 
 CORINGA = '*'
 BRANCO = '_'

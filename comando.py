@@ -9,6 +9,9 @@ class Comando:
         self.id_bloco = id_bloco
         self.estado_retorno = estado_retorno
         self.breakpoint = breakpoint
+        self.chamada_outro_bloco = id_bloco != '' and estado_retorno != ''
 
     def __str__(self):
+        if self.chamada_outro_bloco:
+            return f'{self.estado_atual} {self.id_bloco} {self.estado_retorno}'
         return f'{self.estado_atual} {self.simbolo_atual} -- {self.novo_simbolo} {self.movimento} {self.novo_estado}'

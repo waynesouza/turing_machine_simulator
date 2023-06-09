@@ -15,9 +15,9 @@ class MaquinaTuring:
         return ''.join(self.fita)
 
     def aceitar(self, fita_original):
-        bloco_principal = list()  # FIXME filtrar blocos
+        bloco_principal = list(filter(lambda bloco: bloco.id == c.PRINCIPAL, self.blocos))[0]
         self.fita = [char for char in fita_original]
-        # TODO lógica para verificar a aceitação
+        self.verificar_aceitacao(self.fita, bloco_principal)
 
     def verificar_aceitacao(self, fita, bloco_atual):
         estado_atual = bloco_atual.estado_inicial
@@ -26,13 +26,12 @@ class MaquinaTuring:
             if self.computacoes < 0:
                 # TODO funcao para abrir terminal (dentro do if)
                 return
-            # TODO funcao para verificar o verbose
+            self.verificar_verbose(bloco_atual, estado_atual, fita)
             simbolo_lido = fita[self.indice]
             comandos_do_estado = list(filter(lambda comando_analisado: comando_analisado.estado_atual == estado_atual,
                                              bloco_atual.comandos))
             comando_atual = comandos_do_estado[0]
-            if len(comandos_do_estado) == 1:
-                # TODO adicionar outra verificacao por chamada de bloco
+            if len(comandos_do_estado) == 1 and comando_atual.chamada_outro_bloco:
                 if comando_atual.breakpoint:
                     # TODO funcao para abrir terminal (dentro do if)
                     return
@@ -63,6 +62,7 @@ class MaquinaTuring:
                     if self.indice == (len(fita) - 1) and comando.movimento == c.DIREITA:
                         fita.append(c.BRANCO)
                     self.indice += 1 if comando.movimento == c.DIREITA else -1
+        self.verificar_verbose(bloco_atual, estado_atual, fita)
 
     def abrir_terminal(self):
         novas_instrucoes = input('Informe as novas instruções: ').split(' ')  # FIXME adicionar um arquivo de mensagens
@@ -88,5 +88,9 @@ class MaquinaTuring:
                 resultado_fita = f'{resultado_fita}{fita_com_maximo_brancos[indice_atual]}'
             indice_atual += 1
         print(f'{bloco}.{estado}: {resultado_fita}')
+
+    def verificar_verbose(self, bloco_atual, estado_atual, fita_original):
+        if estado_atual != c.RETORNE and p.VERBOSE:
+            self.imprimir(bloco_atual, estado_atual, fita_original)
 
 
