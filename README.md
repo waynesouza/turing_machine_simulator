@@ -1,12 +1,12 @@
 # Turing Machine Simulator
 
-Este repositório contém uma aplicação em Python que simula uma Máquina de Turing (MT) para resolver o problema descrito nos arquivos [enunciado.pdf](https://github.com/waynesouza/turing_machine_simulator/blob/master/docs/enunciado.pdf) e [enunciado_parte_2.pdf](https://github.com/waynesouza/turing_machine_simulator/blob/master/docs/enunciado_parte_2.pdf).
+Este repositório contém uma aplicação em Python que simula uma Máquina de Turing (MT) para resolver o problema descrito nos arquivos [enunciado.pdf](https://github.com/waynesouza/turing_machine_simulator/blob/main/docs/enunciado.pdf) e [enunciado_parte_2.pdf](https://github.com/waynesouza/turing_machine_simulator/blob/main/docs/enunciado_parte_2.pdf).
 
 ## Sobre o Problema
 
 O problema consiste em simular o funcionamento de uma Máquina de Turing, um modelo teórico de computação desenvolvido por Alan Turing. A Máquina de Turing é uma máquina abstrata capaz de manipular símbolos em uma fita de maneira determinística, seguindo uma série de regras.
 
-O enunciado do problema, presente no arquivo [enunciado.pdf](https://github.com/waynesouza/turing_machine_simulator/blob/master/docs/enunciado.pdf), descreve a especificação de uma Máquina de Turing em particular, incluindo a definição da fita inicial, os estados, as transições e a configuração de aceitação.
+O enunciado do problema, presente no arquivo [enunciado.pdf](https://github.com/waynesouza/turing_machine_simulator/blob/main/docs/enunciado.pdf), descreve a especificação de uma Máquina de Turing em particular, incluindo a definição da fita inicial, os estados, as transições e a configuração de aceitação.
 
 ## Requisitos
 
