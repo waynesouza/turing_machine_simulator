@@ -29,7 +29,7 @@ O enunciado do problema, presente no arquivo [enunciado.pdf](https://github.com/
 3. Execute o script principal para iniciar a aplicação:
 
    ```bash
-   python3 python3 simturing.py palindromo.MT -v
+   python3 simturing.py palindromo.MT -v
    ```
 
 4. Siga as instruções exibidas no terminal para interagir com a Máquina de Turing.
