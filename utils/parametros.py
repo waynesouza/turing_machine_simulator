@@ -10,4 +10,4 @@ delimitador_final = ')'
 
 palavra_inicial = ''
 ultimas_instrucoes = ''
-parametros_permitidos = [['-resume', '-r'], ['-verbose', '-v'], ['-step', '-s'], ['-head', '-h']]
+parametros_permitidos = {'-resume': '-r', '-verbose': '-v', '-step': '-s', '-head': '-h'}
