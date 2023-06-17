@@ -10,7 +10,7 @@ def limpar_linha(linha):
     for parte in linha:
         if parte.endswith(c.QUEBRA_DE_LINHA):
             parte = parte[:len(parte) - 1]
-        if parte == c.VAZIO or parte == c.SEPARADOR:
+        if parte == c.VAZIO or parte == c.SEPARADOR_TIPO_1 or parte == c.SEPARADOR_TIPO_2:
             continue
         linha_limpa.append(parte)
     return linha_limpa
