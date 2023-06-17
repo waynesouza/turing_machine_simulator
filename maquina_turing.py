@@ -32,8 +32,8 @@ class MaquinaTuring:
 
             self.verificar_verbose(bloco_atual, estado_atual, fita)
             simbolo_lido = fita[self.indice]
-            comandos_do_estado = list(filter(lambda comando_analisado: comando_analisado.estado_atual == estado_atual,
-                                             bloco_atual.comandos))
+            comandos_do_estado = list(
+                filter(lambda comando_analisado: comando_analisado.estado_atual == estado_atual, bloco_atual.comandos))
             comando_atual = comandos_do_estado[0]
 
             if len(comandos_do_estado) == 1 and comando_atual.chamada_outro_bloco:
@@ -60,7 +60,11 @@ class MaquinaTuring:
                 fita[self.indice] = comando.novo_simbolo if comando.novo_simbolo != c.CORINGA else fita[self.indice]
                 estado_atual = comando.novo_estado if comando.novo_estado != c.CORINGA else estado_atual
 
-                if comando.movimento != c.IMOVEL:
+                if estado_atual == c.PARE:
+                    if (not p.verbose) or p.step:
+                        print(m.CONTEUDO_FINAL_FITA.format(fita=self.pegar_conteudo_fita()))
+                    exit()
+                elif comando.movimento != c.IMOVEL:
                     if self.indice == 0 and comando.movimento == c.ESQUERDA:
                         fita.insert(0, c.BRANCO)
                         self.indice += 1
