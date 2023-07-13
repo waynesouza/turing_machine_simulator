@@ -48,4 +48,5 @@ O enunciado do problema, presente no arquivo [enunciado.pdf](https://github.com/
 - `docs/enunciado.pdf`: O arquivo com as instruções detalhadas do problema a ser resolvido pela Máquina de Turing.
 - `docs/enunciado_parte_2.pdf`: O arquivo com as instruções detalhadas do problema para realizar a operação de adição.
 - `palindromo.MT`: O arquivo contem a implementação de um reconhecedor de palíndromos.
+- `soma.MT`: O arquivo contem a implementação de um somador para dois números inteiros positivos.
 - `README.md`: O arquivo contem as informações sobre o repositório e instruções de uso.
